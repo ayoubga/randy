@@ -46,7 +46,7 @@ const Discord = require('discord.js');
     
     client.on("message", async message => {
         if(!message.channel.guild) return;
- var prefix= "+";
+ var prefix= "!";
         if(message.content.startsWith(prefix + 'server')) {
         let guild = message.guild
         let channel = message.channel
