@@ -85,3 +85,15 @@ const Discord = require('discord.js');
         }, ms);
 
     })
+
+
+
+
+
+
+
+
+
+
+client.login(process.env.BOT_TOKEN);
+
