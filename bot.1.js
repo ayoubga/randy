@@ -45,7 +45,7 @@
     })
     /////////////////////الأكواد///////////////////////////
 Client.on("message", message => {
-	var prefix = "+";
+	
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
