@@ -44,7 +44,7 @@
         }, ms);
     })
     /////////////////////الأكواد///////////////////////////
-Client.on("message", message => {
+ client.on('message', msg => {
 	
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
