@@ -27,7 +27,7 @@ const Discord = require('discord.js');
     });
     client.on('ready', function(){
         var ms = 10000 ;
-        var setGame = [' !invite ','FINEX SERVER | FX ','BY : بايثور ','FINEX BOT','(= Hi'];
+        var setGame = [' Sky Shop ',' ',' ','',';
         var i = -1;
         var j = 0;
         setInterval(function (){
