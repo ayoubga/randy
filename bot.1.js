@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
     const client = new Discord.Client();
     const prefix = '!'
+        client.on('error', console.error);
 
     client.on('ready', () => {
       console.log(`Logged in as ${client.user.tag}!`);
@@ -27,7 +28,7 @@ const Discord = require('discord.js');
     });
     client.on('ready', function(){
         var ms = 10000 ;
-        var setGame = [' Sky Shop ',' ',' ','',''];
+        var setGame = [' sky shop ','sky shop |  ','sky shop','sky shop',''];
         var i = -1;
         var j = 0;
         setInterval(function (){
@@ -42,6 +43,7 @@ const Discord = require('discord.js');
         }, ms);
 
     })
+    /////////////////////الأكواد///////////////////////////
     
     
     client.on("message", async message => {
