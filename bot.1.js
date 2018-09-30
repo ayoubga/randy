@@ -1,8 +1,7 @@
 
  const Discord = require('discord.js');
     const client = new Discord.Client();
-    const prefix = '+'
-        client.on('error', console.error);
+    const prefix = '!'
 
     client.on('ready', () => {
       console.log(`Logged in as ${client.user.tag}!`);
@@ -29,7 +28,7 @@
     });
     client.on('ready', function(){
         var ms = 10000 ;
-        var setGame = [' sky server '];
+        var setGame = [' Sky Shop '];
         var i = -1;
         var j = 0;
         setInterval(function (){
@@ -42,8 +41,7 @@
             i = i+j;
             client.user.setGame(setGame[i],`https://www.twitch.tv/pythorxxx`);
         }, ms);
-    })
-    /////////////////////الأكواد///////////////////////////
 
+    })
 
 client.login(process.env.BOT_TOKEN);
