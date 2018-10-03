@@ -278,7 +278,7 @@ client.on('message', ALPHACODES => {
 	var prefix = "!"
   var sender = ALPHACODES.author
   if(!ALPHACODES.guild) return
-  if(!sw[ALPHACODES.guild.id]) sw[ALPHACODES.guild.id] = {
+
   onoff: 'Off',
   ch:    'Welcome',
   msk:   'Welcome'
