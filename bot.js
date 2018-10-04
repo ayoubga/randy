@@ -363,16 +363,16 @@ client.on('voiceStateUpdate', (old, now) => {
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
 ////////////////////////////////////////////////////
-client.on('ready', () = {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-         client.on('message', message = {
-            if (message.content === 'السلام عليكم') {
-              message.channel.send(' وعليكم السلام و رحمة الله و بركاته');
-              message.channel.sendFile(.Photo.PNG);
-               
-
-            }
+client.on('message', message => {
+if (message.content.startsWith('السلام عليكم ')){
+     let ra3d = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("random")
+  .setDescription(" **وعليكم السلام و رحمة الله و بركاته**")
+     
+     
+  message.channel.sendEmbed(ra3d);
+    }
 });
 ////////////////////////////////////////////////////////////////
 
