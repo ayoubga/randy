@@ -338,7 +338,7 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 ////////////////////////////////////////////////////
 client.on('message', message => {
-if (message.content.startsWith(السلام عليكم ')){
+if (message.content.startsWith('السلام عليكم ')){
      let ra3d = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("random")
