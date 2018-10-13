@@ -32,86 +32,8 @@ client.user.setGame(`Sky Shop`,"http://twitch.tv/S-F")
 
 
 
-  client.on('message', message => {
-	
-if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'سحب')) {
- if (message.member.hasPermission("MOVE_MEMBERS")) {
- if (message.mentions.users.size === 0) {
- return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "سحب [USER]``")
-}
-if (message.member.voiceChannel != null) {
- if (message.mentions.members.first().voiceChannel != null) {
- var authorchannel = message.member.voiceChannelID;
- var usermentioned = message.mentions.members.first().id;
-var embed = new Discord.RichEmbed()
- .setTitle("Succes!")
- .setColor("#000000")
- .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك✅ `)
-var embed = new Discord.RichEmbed()
-.setTitle(`You are Moved in ${message.guild.name}`)
- .setColor("RANDOM")
-.setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
- message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
-message.guild.members.get(usermentioned).send(embed)
-} else {
-message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
-}
-} else {
- message.channel.send("**``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``**")
-}
-} else {
-message.react("❌")
- }}});
- 
- /////////////////////////////////////////////////
- client.on("message", message => {
-	
-	var args = message.content.split(' ').slice(1); 
-	var msg = message.content.toLowerCase();
-	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + 'role' ) ) return;
-	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
-		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
-		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
-		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
-		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
-		if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
-			message.mentions.members.first().removeRole( role1 );
-			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
-		}
-		if( args[0].toLowerCase() == "all" ){
-			message.guild.members.forEach(m=>m.removeRole( role1 ))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
-		} else if( args[0].toLowerCase() == "bots" ){
-			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
-		} else if( args[0].toLowerCase() == "humans" ){
-			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
-		} 	
-	} else {
-		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
-		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
-		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
-		if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
-			message.mentions.members.first().addRole( role1 );
-			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
-		}
-		if( args[0].toLowerCase() == "all" ){
-			message.guild.members.forEach(m=>m.addRole( role1 ))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
-		} else if( args[0].toLowerCase() == "bots" ){
-			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
-		} else if( args[0].toLowerCase() == "humans" ){
-			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
-		} 
-	} 
-});
+  
+
 /////////////////////////////////////////////////
 
 client.on('message', async message =>{
@@ -315,7 +237,6 @@ client.on("guildMemberAdd", (member) => {
 });
 ////////////////////////////////////////////////
 
-///////////////////////////////////////////
 client.on('voiceStateUpdate', (old, now) => {
   const channel = client.channels.get('497369478955401216');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
@@ -325,68 +246,9 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 ////////////////////////////////////////////////////
 
-var dat = JSON.parse("{}");
-function forEachObject(obj, func) {
-    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
-}
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "Sky Shop ,")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        })
-    })
-})
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'sky');
-    if (!channel) {
-        console.log("!channel fails");
-        return;
-    }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('made it till here!');
-    var guild;
-    while (!guild)
-        guild = client.guilds.find("name", "Sky Shop ,")
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
-                    console.log(3);
-                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(` ♥ **تم دعوته من قبل ${Invite.inviter} ♥ `)            
- }
-            dat[Inv] = Invite.uses;
-        })
-    })
-});
-/////////////////////////////
- client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
 
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 2,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-  message.channel.send("**تم ارسال الرابط برسالة خاصة**")
+ 
 
-message.author.send(`**مدة الرابط : يـوم
-عدد استخدامات الرابط : 2**`)
-
-
-    }
-});
-  
-//////////////////////////////////////////////////////////////
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
