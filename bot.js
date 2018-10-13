@@ -314,19 +314,6 @@ client.on("guildMemberAdd", (member) => {
     });
 });
 ////////////////////////////////////////////////
-client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
 
 ///////////////////////////////////////////
 client.on('voiceStateUpdate', (old, now) => {
@@ -337,18 +324,6 @@ client.on('voiceStateUpdate', (old, now) => {
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
 ////////////////////////////////////////////////////
-client.on('message', message => {
-if (message.content.startsWith('السلام عليكم ')){
-     let ra3d = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("random")
-  .setDescription(" **وعليكم السلام و رحمة الله و بركاته**")
-     
-     
-  message.channel.sendEmbed(ra3d);
-    }
-});
-////////////////////////////////////////////////////////////////
 
 var dat = JSON.parse("{}");
 function forEachObject(obj, func) {
