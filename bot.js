@@ -627,5 +627,21 @@ client.on('message', message => {
     }
   
   });
+client.on('message', message => {
+  if (true) {
+if (message.content === '!invite') {
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=511503644403695616&scope=bot&permissions=36760572 ').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+client.on('message', message => {
+  if (true) {
+if (message.content === '!support') {
+      message.author.send(' https://discord.gg/HNkzuP2 دخول سيرفر الدعم لـ أي استفسار').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
 client.login(process.env.BOT_TOKEN);
 
